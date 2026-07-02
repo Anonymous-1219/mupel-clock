@@ -3,7 +3,7 @@ name: Mobile Cloud Build
 on:
   push:
     branches:
-      - main  # Triggers the build whenever you update your main branch
+      - main
 
 jobs:
   build:
@@ -19,6 +19,10 @@ jobs:
         java-version: '17'
         cache: 'gradle'
 
+    # 👇 THIS STEP FIXES YOUR EXACT ERROR BY GENERATING THE MISSING FILE
+    - name: Generate Missing Gradle Wrapper
+      run: gradle wrapper
+
     - name: Grant Gradle Permissions
       run: chmod +x gradlew
 
@@ -30,4 +34,3 @@ jobs:
       with:
         name: my-app-apk
         path: app/build/outputs/apk/debug/app-debug.apk
-        

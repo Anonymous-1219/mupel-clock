@@ -19,11 +19,17 @@ jobs:
         java-version: '17'
         cache: 'gradle'
 
-    - name: Generate Safe Gradle Wrapper
+    # 1. First, we create the wrapper configurations
+    - name: Generate Safe Gradle Wrapper Configuration
       run: gradle wrapper --gradle-version 8.10.2
 
+    # 2. Give the file executing rights
     - name: Grant Gradle Permissions
       run: chmod +x gradlew
+
+    # 👇 3. THIS RUNS THE DOWNGRADE ENGINE SO VERSION 9 NEVER TOUCHES YOUR APP
+    - name: Download and Apply Gradle 8.10.2
+      run: ./gradlew wrapper --gradle-version 8.10.2
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug

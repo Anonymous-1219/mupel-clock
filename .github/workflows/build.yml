@@ -1,38 +1,35 @@
-name: Mobile Cloud Build
+name: Build Android APK
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-    - name: Set up Java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'zulu'
-        java-version: '17'
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
 
-    - name: Setup Gradle Environment
-      uses: gradle/actions/setup-gradle@v4
-      with:
-        gradle-version: 8.10.2
+      - name: Grant execute permission for Gradle
+        run: chmod +x gradlew
 
-    # 👇 THIS STEAL-INJECTS THE REQUIRED SETTING INTO GRADLE PROPERTIES
-    - name: Enable AndroidX Support
-      run: echo "android.useAndroidX=true" >> gradle.properties
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
 
-    - name: Direct Build APK
-      run: gradle assembleDebug
-
-    - name: Save APK Asset
-      uses: actions/upload-artifact@v4
-      with:
-        name: my-app-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
-        
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: app/build/outputs/apk/release/*.apk

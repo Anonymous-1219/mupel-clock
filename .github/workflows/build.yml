@@ -18,13 +18,15 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    # 👇 THIS BYPASSES THE SYSTEM BUILDER AND FORCES THE RIGHT ENGINE STRAIGHT AWAY
     - name: Setup Gradle Environment
       uses: gradle/actions/setup-gradle@v4
       with:
         gradle-version: 8.10.2
 
-    # 👇 WE BUILD DIRECTLY WITHOUT REQUIRING THE WRAPPER FILES IN YOUR CODE
+    # 👇 THIS STEAL-INJECTS THE REQUIRED SETTING INTO GRADLE PROPERTIES
+    - name: Enable AndroidX Support
+      run: echo "android.useAndroidX=true" >> gradle.properties
+
     - name: Direct Build APK
       run: gradle assembleDebug
 

@@ -19,9 +19,9 @@ jobs:
         java-version: '17'
         cache: 'gradle'
 
-    # 👇 THIS STEP FIXES YOUR EXACT ERROR BY GENERATING THE MISSING FILE
-    - name: Generate Missing Gradle Wrapper
-      run: gradle wrapper
+    # 👇 THIS STEP FORCES A COMPATIBLE GRADLE VERSION INSTEAD OF VERSION 9
+    - name: Generate Safe Gradle Wrapper
+      run: gradle wrapper --gradle-version 8.10.2
 
     - name: Grant Gradle Permissions
       run: chmod +x gradlew

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mupel Clock</string>
+
+    <!-- Tabs -->
+    <string name="tab_clock">Clock</string>
+    <string name="tab_timer">Timer</string>
+    <string name="tab_stopwatch">Stopwatch</string>
+
+    <!-- Clock -->
+    <string name="format_12h">12-Hour</string>
+    <string name="format_24h">24-Hour</string>
+
+    <!-- Timer -->
+    <string name="timer_start">Start</string>
+    <string name="timer_pause">Pause</string>
+    <string name="timer_resume">Resume</string>
+    <string name="timer_stop">Stop</string>
+    <string name="timer_reset">Reset</string>
+    <string name="timer_add_5">+ 5 min</string>
+    <string name="timer_restart">Restart</string>
+    <string name="timer_set_time">Set a time to begin</string>
+    <string name="timer_completed">Time\'s up!</string>
+
+    <!-- Stopwatch -->
+    <string name="stopwatch_start">Start</string>
+    <string name="stopwatch_pause">Pause</string>
+    <string name="stopwatch_resume">Resume</string>
+    <string name="stopwatch_reset">Reset</string>
+    <string name="stopwatch_lap">Lap</string>
+
+    <!-- Floating Timer -->
+    <string name="floating_timer_notification">Timer running</string>
+    <string name="floating_timer_paused">Timer paused</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_timer">Timer</string>
+    <string name="notification_channel_timer_desc">Timer notifications and updates</string>
+</resources>

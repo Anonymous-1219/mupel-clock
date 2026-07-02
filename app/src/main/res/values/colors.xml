@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mupel Purple Brand Colors -->
+    <color name="primary">#8B5CF6</color>
+    <color name="primary_variant">#7C3AED</color>
+    <color name="secondary">#A78BFA</color>
+    <color name="accent">#EC4899</color>
+
+    <!-- Background & Surface -->
+    <color name="background">#0F0F0F</color>
+    <color name="surface">#1A1A1A</color>
+    <color name="surface_variant">#2D2D2D</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_tertiary">#808080</color>
+
+    <!-- Status Colors -->
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="error">#EF4444</color>
+
+    <!-- UI Elements -->
+    <color name="divider">#383838</color>
+    <color name="disabled">#505050</color>
+</resources>
